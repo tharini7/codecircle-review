@@ -150,14 +150,19 @@ function App() {
           <div>
             <h2>{activity.prompt}</h2>
             {activity.code && <pre>{activity.code}</pre>}
-            {activity.type === 'this-or-that' ? (
+            {activity.type === 'mcq' ? (
   <div>
-    <button onClick={() => { socket.emit('submit-answer', { code: room.code, answer: activity.optionA }); setAnswer(activity.optionA); }}>
-      {activity.optionA}
-    </button>
-    <button onClick={() => { socket.emit('submit-answer', { code: room.code, answer: activity.optionB }); setAnswer(activity.optionB); }}>
-      {activity.optionB}
-    </button>
+    {activity.options.map((opt, i) => (
+      <button
+        key={i}
+        onClick={() => {
+          socket.emit('submit-answer', { code: room.code, answer: opt });
+          setAnswer(opt);
+        }}
+      >
+        {opt}
+      </button>
+    ))}
     {answer && <p>You chose: {answer}</p>}
   </div>
 ) : (

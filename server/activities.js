@@ -2,7 +2,8 @@ const activities = [
   {
     id: 1,
     type: "mcq",
-    prompt: 'function greet() { console.log("Hello!"); } greet(); — what prints?',
+    prompt: "What prints?",
+    code: 'function greet() {\n  console.log("Hello!");\n}\n\ngreet();',
     options: ["Nothing", "Hello!", "greet", "Error"],
     sampleAnswer: "Hello!"
   },
@@ -21,7 +22,8 @@ const activities = [
   {
     id: 3,
     type: "mcq",
-    prompt: 'function greet(name) { console.log(`Hi ${name}!`); } greet("Aang"); — what prints?',
+    prompt: "What prints?",
+    code: 'function greet(name) {\n  console.log(`Hi ${name}!`);\n}\n\ngreet("Aang");',
     options: ["Hi name!", "Hi Aang!", 'greet("Aang")', "Error"],
     sampleAnswer: "Hi Aang!"
   },
@@ -40,7 +42,8 @@ const activities = [
   {
     id: 5,
     type: "mcq",
-    prompt: 'function add(a, b) { return a + b; } console.log(add(4)); — why doesn\'t this work as expected?',
+    prompt: "Why doesn't this work as expected?",
+    code: 'function add(a, b) {\n  return a + b;\n}\n\nconsole.log(add(4));',
     options: [
       "Functions cannot return numbers",
       "One argument is missing",
@@ -66,7 +69,8 @@ const activities = [
   {
     id: 8,
     type: "mcq",
-    prompt: "console.log(12 >= 15); — what prints?",
+    prompt: "What prints?",
+    code: "console.log(12 >= 15);",
     options: ["true", "false", "12", "Error"],
     sampleAnswer: "false"
   },
@@ -80,7 +84,8 @@ const activities = [
   {
     id: 10,
     type: "mcq",
-    prompt: "let age = 15; if (age >= 16) { console.log(\"Can drive\"); } else { console.log(\"Too young\"); } — what prints?",
+    prompt: "What prints?",
+    code: 'let age = 15;\n\nif (age >= 16) {\n  console.log("Can drive");\n} else {\n  console.log("Too young");\n}',
     options: ["Can drive", "Too young", "true", "Error"],
     sampleAnswer: "Too young"
   },
@@ -99,21 +104,24 @@ const activities = [
   {
     id: 12,
     type: "mcq",
-    prompt: 'let temperature = 65; if (temperature < 70) { console.log("Wear a jacket"); } else { console.log("Wear shorts"); } — what prints?',
+    prompt: "What prints?",
+    code: 'let temperature = 65;\n\nif (temperature < 70) {\n  console.log("Wear a jacket");\n} else {\n  console.log("Wear shorts");\n}',
     options: ["Wear shorts", "Wear a jacket", "65", "Error"],
     sampleAnswer: "Wear a jacket"
   },
   {
     id: 13,
     type: "mcq",
-    prompt: 'function isAdult(age) { return age >= 18; } console.log(isAdult(20)); — what prints?',
+    prompt: "What prints?",
+    code: 'function isAdult(age) {\n  return age >= 18;\n}\n\nconsole.log(isAdult(20));',
     options: ["20", "Adult", "true", "false"],
     sampleAnswer: "true"
   },
   {
     id: 14,
     type: "mcq",
-    prompt: 'let score = 90; if (score = 100) { console.log("Perfect!"); } — what is the mistake?',
+    prompt: "What is the mistake?",
+    code: 'let score = 90;\n\nif (score = 100) {\n  console.log("Perfect!");\n}',
     options: [
       "Should use === instead of =",
       "The variable should be const",
@@ -125,14 +133,16 @@ const activities = [
   {
     id: 15,
     type: "mcq",
-    prompt: 'let lives = 0; if (lives > 0) { console.log("Keep playing"); } else { console.log("Game Over"); } — what prints?',
+    prompt: "What prints?",
+    code: 'let lives = 0;\n\nif (lives > 0) {\n  console.log("Keep playing");\n} else {\n  console.log("Game Over");\n}',
     options: ["Keep playing", "Game Over", "0", "false"],
     sampleAnswer: "Game Over"
   },
   {
     id: 16,
     type: "mcq",
-    prompt: "function multiply(a, b) { return a * b; } let answer = multiply(3, 4); — what is the value of answer?",
+    prompt: "What is the value of answer?",
+    code: 'function multiply(a, b) {\n  return a * b;\n}\n\nlet answer = multiply(3, 4);',
     options: ["7", "12", "34", "undefined"],
     sampleAnswer: "12"
   },
@@ -151,14 +161,16 @@ const activities = [
   {
     id: 18,
     type: "mcq",
-    prompt: 'function checkScore(score) { if (score >= 70) { return "Pass"; } return "Fail"; } console.log(checkScore(68)); — what prints?',
+    prompt: "What prints?",
+    code: 'function checkScore(score) {\n  if (score >= 70) {\n    return "Pass";\n  }\n  return "Fail";\n}\n\nconsole.log(checkScore(68));',
     options: ["Pass", "Fail", "68", "true"],
     sampleAnswer: "Fail"
   },
   {
     id: 19,
     type: "mcq",
-    prompt: 'function greet(name) { console.log("Hello, ${name}!"); } — which change fixes this function?',
+    prompt: "Which change fixes this function?",
+    code: 'function greet(name) {\n  console.log("Hello, ${name}!");\n}',
     options: [
       "console.log(`Hello, ${name}!`);",
       'console.log("Hello, " + name + "!");',

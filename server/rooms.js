@@ -35,12 +35,31 @@ function addScholar(code, scholarId, name){
     if (!room){
         return null;
     }
-    const roomScholar = {
-        scholarId,
-        name
-    };
-    room.scholars.push(roomScholar);
+
+    const existing = room.scholars.find(s => s.name.toLowerCase() === name.toLowerCase());
+
+    if (existing) {
+        existing.id = scholarId; // same person reconnecting, new socket id
+    } else {
+        room.scholars.push({ id: scholarId, name });
+    }
+
     return room;
 }
 
-module.exports = { createRoom, getRoom, addScholar };
+function removeScholar(scholarId) {
+    let updatedRoom = null;
+    rooms.forEach((room) => {
+        const index = room.scholars.findIndex(s => s.id === scholarId);
+        if (index !== -1) {
+            room.scholars.splice(index, 1);
+            updatedRoom = room;
+        }
+    });
+    return updatedRoom;
+}
+function deleteRoom(code) {
+  rooms.delete(code);
+}
+
+module.exports = { createRoom, getRoom, addScholar,  removeScholar ,deleteRoom };

@@ -2,7 +2,7 @@ const express = require('express');
 const http = require('http');
 const cors = require('cors');
 const { Server } = require('socket.io');
-const { createRoom, getRoom, addScholar, deleteRoom } = require('./rooms');
+const { createRoom, getRoom, addScholar, deleteRoom, removeScholar} = require('./rooms');
 const activities = require('./activities');
 
 const app = express();
@@ -60,7 +60,7 @@ io.on('connection', (socket) => {
         room.responses = [];
 
         const activity = activities[room.currentActivityIndex];
-        io.to(code).emit('activity-started', activity);
+        io.to(code).emit('activity-started', { activity, index: room.currentActivityIndex, total: activities.length });
     });
 
     socket.on('submit-answer', ({ code, answer }) => {
@@ -95,5 +95,12 @@ io.on('connection', (socket) => {
     io.to(code).emit('room-ended');
     deleteRoom(code);
 });
+
+ socket.on('disconnect', () => {
+        const room = removeScholar(socket.id);
+        if (room) {
+            io.to(room.code).emit('scholar-join', room.scholars);
+        }
+    });
 
 });

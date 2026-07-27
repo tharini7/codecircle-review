@@ -12,6 +12,7 @@ function App() {
   const [answer, setAnswer] = useState('');
   const [name, setName] = useState('');
   const [joinCode, setJoinCode] = useState('');
+  const [questionNum, setQuestionNum] = useState(null);
   
 
   useEffect(() => {
@@ -29,13 +30,13 @@ function App() {
       setRoom((prev) => prev ? { ...prev, scholars } : prev);
     });
 
-    socket.on('activity-started', (newActivity) => {
-      setActivity(newActivity);
-      setResponses([]);
-      setSampleAnswer(null);
-      setAnswer('');
-    });
-
+    socket.on('activity-started', ({ activity, index, total }) => {
+  setActivity(activity);
+  setQuestionNum({ index, total });
+  setResponses([]);
+  setSampleAnswer(null);
+  setAnswer('');
+});
     socket.on('responses-updated', (updatedResponses) => {
   setResponses(updatedResponses);
 });
@@ -105,7 +106,7 @@ function App() {
   if (role === 'landing') {
     return (
       <div>
-        <h1>CodeCircle Review</h1>
+        <h1>Opening Circle Review</h1>
         <button onClick={createRoom}>Host a Room</button>
         <hr />
         <input placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} />
@@ -119,7 +120,7 @@ function App() {
     return (
       <div>
         <h1>Room Code: {room.code}</h1>
-        <h3>Scholars: {room.scholars.map((s) => s.name).join(', ')}</h3>
+       <h3>Scholars ({room.scholars.length}): {room.scholars.map((s) => s.name).join(', ')}</h3>
         <button onClick={nextActivity}>Next Activity</button>
         <button onClick={revealAnswer}>Reveal Answer</button>
         <button onClick={goHome}>← Back to Home</button>
@@ -132,7 +133,7 @@ function App() {
           </div>
         )}
 
-        {sampleAnswer && <p><strong>Sample Answer:</strong> {sampleAnswer}</p>}
+        {sampleAnswer && <p><strong>Answer:</strong> {sampleAnswer}</p>}
 
         <h3>Responses ({responses.length})</h3>
         <ul className="response-list">
@@ -171,7 +172,7 @@ function App() {
     <button onClick={submitAnswer}>Submit</button>
   </div>
 )}
-            {sampleAnswer && <p><strong>Sample Answer:</strong> {sampleAnswer}</p>}
+            {sampleAnswer && <p><strong>Answer:</strong> {sampleAnswer}</p>}
           </div>
         ) : (
           <p>Waiting for host to start an activity...</p>

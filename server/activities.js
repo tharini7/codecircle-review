@@ -1,6 +1,191 @@
 const activities = [
   {
     id: 1,
+    type: "mcq",
+    prompt: 'function greet() { console.log("Hello!"); } greet(); — what prints?',
+    options: ["Nothing", "Hello!", "greet", "Error"],
+    sampleAnswer: "Hello!"
+  },
+  {
+    id: 2,
+    type: "mcq",
+    prompt: "Which function correctly accepts a parameter called name?",
+    options: [
+      "function greet(name) {}",
+      "function(name) greet {}",
+      "greet function(name) {}",
+      "function greet = (name) {}"
+    ],
+    sampleAnswer: "function greet(name) {}"
+  },
+  {
+    id: 3,
+    type: "mcq",
+    prompt: 'function greet(name) { console.log(`Hi ${name}!`); } greet("Aang"); — what prints?',
+    options: ["Hi name!", "Hi Aang!", 'greet("Aang")', "Error"],
+    sampleAnswer: "Hi Aang!"
+  },
+  {
+    id: 4,
+    type: "mcq",
+    prompt: "Which statement is true?",
+    options: [
+      "return sends a value back from a function",
+      "console.log() ends the function",
+      "return prints to the console",
+      "console.log() stores a variable"
+    ],
+    sampleAnswer: "return sends a value back from a function"
+  },
+  {
+    id: 5,
+    type: "mcq",
+    prompt: 'function add(a, b) { return a + b; } console.log(add(4)); — why doesn\'t this work as expected?',
+    options: [
+      "Functions cannot return numbers",
+      "One argument is missing",
+      "return should be console.log",
+      "Parentheses are missing"
+    ],
+    sampleAnswer: "One argument is missing"
+  },
+  {
+    id: 6,
+    type: "mcq",
+    prompt: "Which operator checks if two values are equal?",
+    options: ["=", "==", "===", "+="],
+    sampleAnswer: "=== (also == works, but === is the strict/best-practice check)"
+  },
+  {
+    id: 7,
+    type: "mcq",
+    prompt: "Which comparison is TRUE?",
+    options: ["7 > 10", "5 <= 5", "8 < 3", "9 != 9"],
+    sampleAnswer: "5 <= 5"
+  },
+  {
+    id: 8,
+    type: "mcq",
+    prompt: "console.log(12 >= 15); — what prints?",
+    options: ["true", "false", "12", "Error"],
+    sampleAnswer: "false"
+  },
+  {
+    id: 9,
+    type: "mcq",
+    prompt: "Which line compares two values?",
+    options: ["score = 10;", "score === 10;", "score += 10;", "score++;"],
+    sampleAnswer: "score === 10;"
+  },
+  {
+    id: 10,
+    type: "mcq",
+    prompt: "let age = 15; if (age >= 16) { console.log(\"Can drive\"); } else { console.log(\"Too young\"); } — what prints?",
+    options: ["Can drive", "Too young", "true", "Error"],
+    sampleAnswer: "Too young"
+  },
+  {
+    id: 11,
+    type: "mcq",
+    prompt: "Which if statement is correct?",
+    options: [
+      "if score > 10 {",
+      "if (score > 10) {",
+      "if score > 10 ()",
+      "(score > 10) if {"
+    ],
+    sampleAnswer: "if (score > 10) {"
+  },
+  {
+    id: 12,
+    type: "mcq",
+    prompt: 'let temperature = 65; if (temperature < 70) { console.log("Wear a jacket"); } else { console.log("Wear shorts"); } — what prints?',
+    options: ["Wear shorts", "Wear a jacket", "65", "Error"],
+    sampleAnswer: "Wear a jacket"
+  },
+  {
+    id: 13,
+    type: "mcq",
+    prompt: 'function isAdult(age) { return age >= 18; } console.log(isAdult(20)); — what prints?',
+    options: ["20", "Adult", "true", "false"],
+    sampleAnswer: "true"
+  },
+  {
+    id: 14,
+    type: "mcq",
+    prompt: 'let score = 90; if (score = 100) { console.log("Perfect!"); } — what is the mistake?',
+    options: [
+      "Should use === instead of =",
+      "The variable should be const",
+      "if cannot compare numbers",
+      "console.log() is wrong"
+    ],
+    sampleAnswer: "Should use === instead of ="
+  },
+  {
+    id: 15,
+    type: "mcq",
+    prompt: 'let lives = 0; if (lives > 0) { console.log("Keep playing"); } else { console.log("Game Over"); } — what prints?',
+    options: ["Keep playing", "Game Over", "0", "false"],
+    sampleAnswer: "Game Over"
+  },
+  {
+    id: 16,
+    type: "mcq",
+    prompt: "function multiply(a, b) { return a * b; } let answer = multiply(3, 4); — what is the value of answer?",
+    options: ["7", "12", "34", "undefined"],
+    sampleAnswer: "12"
+  },
+  {
+    id: 17,
+    type: "mcq",
+    prompt: "Which function is best written?",
+    options: [
+      "function square(num) { return num * num; }",
+      "function square() { return 4; }",
+      "function square(num) { console.log(num); }",
+      "square(num) { return num; }"
+    ],
+    sampleAnswer: "function square(num) { return num * num; }"
+  },
+  {
+    id: 18,
+    type: "mcq",
+    prompt: 'function checkScore(score) { if (score >= 70) { return "Pass"; } return "Fail"; } console.log(checkScore(68)); — what prints?',
+    options: ["Pass", "Fail", "68", "true"],
+    sampleAnswer: "Fail"
+  },
+  {
+    id: 19,
+    type: "mcq",
+    prompt: 'function greet(name) { console.log("Hello, ${name}!"); } — which change fixes this function?',
+    options: [
+      "console.log(`Hello, ${name}!`);",
+      'console.log("Hello, " + name + "!");',
+      "Both A and B",
+      "Neither A nor B"
+    ],
+    sampleAnswer: "Both A and B — either backtick interpolation or string concatenation works"
+  },
+  {
+    id: 20,
+    type: "mcq",
+    prompt: "Which best describes a function parameter vs an argument?",
+    options: [
+      "A parameter is the placeholder in the function definition; an argument is the actual value passed in when calling it",
+      "They mean exactly the same thing with no difference",
+      "A parameter is only used for numbers; an argument is only used for strings",
+      "An argument must be declared with let or const"
+    ],
+    sampleAnswer: "A parameter is the placeholder in the function definition; an argument is the actual value passed in when calling it"
+  }
+];
+
+module.exports = activities;
+
+/*const activities = [
+  {
+    id: 1,
     type: "this-or-that",
     prompt: "What happens to the button?",
     code: "button {\n  padding: 20px;\n}",
@@ -174,3 +359,5 @@ const activities = [
 ];
 
 module.exports = activities;
+
+*/

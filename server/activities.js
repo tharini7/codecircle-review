@@ -2,6 +2,254 @@ const activities = [
   {
     id: 1,
     type: "mcq",
+    prompt: "What does the DOM allow JavaScript to do?",
+    options: [
+      "Store a website on the internet",
+      "Access and change elements on a webpage",
+      "Replace HTML and CSS completely",
+      "Download JavaScript libraries"
+    ],
+    sampleAnswer: "Access and change elements on a webpage"
+  },
+  {
+    id: 2,
+    type: "mcq",
+    prompt: "Which code correctly selects the heading?",
+    code: '<h1 id="title">Welcome!</h1>',
+    options: [
+      'document.querySelector("title");',
+      'document.getElementById("title");',
+      'document.getElementById("#title");',
+      'getElement("title");'
+    ],
+    sampleAnswer: 'document.getElementById("title");'
+  },
+  {
+    id: 3,
+    type: "mcq",
+    prompt: "Which code selects the first element with the class card?",
+    options: [
+      'document.querySelector(".card");',
+      'document.querySelector("#card");',
+      'document.getElementById(".card");',
+      'document.querySelector("card.");'
+    ],
+    sampleAnswer: 'document.querySelector(".card");'
+  },
+  {
+    id: 4,
+    type: "mcq",
+    prompt: "Which selector targets an element with the ID score?",
+    options: [".score", "score", "#score", "*score"],
+    sampleAnswer: "#score"
+  },
+  {
+    id: 5,
+    type: "mcq",
+    prompt: 'Which code changes the paragraph to say "You won!"?',
+    code: '<p id="message">Try again.</p>',
+    options: [
+      'document.querySelector("#message").textContent = "You won!";',
+      'document.querySelector("#message") = "You won!";',
+      'document.textContent("#message", "You won!");',
+      'message.changeText("You won!");'
+    ],
+    sampleAnswer: 'document.querySelector("#message").textContent = "You won!";'
+  },
+  {
+    id: 6,
+    type: "mcq",
+    prompt: "What will appear on the webpage?",
+    code: '<h2 id="status">Waiting...</h2>\n\nconst status = document.querySelector("#status");\nstatus.textContent = "Loading complete!";',
+    options: ["Waiting...", "Loading complete!", "status", "Nothing changes"],
+    sampleAnswer: "Loading complete!"
+  },
+  {
+    id: 7,
+    type: "mcq",
+    prompt: "Which line changes the image to katara.png?",
+    code: '<img id="characterImage" src="aang.png">',
+    options: [
+      'characterImage.src = "katara.png";',
+      'characterImage.textContent = "katara.png";',
+      'characterImage.image = "katara.png";',
+      'characterImage = src("katara.png");'
+    ],
+    sampleAnswer: 'characterImage.src = "katara.png";'
+  },
+  {
+    id: 8,
+    type: "mcq",
+    prompt: "Which line changes an element's text color to blue?",
+    options: [
+      'element.color = "blue";',
+      'element.style.color = "blue";',
+      'element.style = color("blue");',
+      'element.css.color("blue");'
+    ],
+    sampleAnswer: 'element.style.color = "blue";'
+  },
+  {
+    id: 9,
+    type: "mcq",
+    prompt: "Which code adds the class active to an element?",
+    options: [
+      'element.classList.add("active");',
+      'element.className.add("active");',
+      'element.addClass = "active";',
+      'element.classList("active");'
+    ],
+    sampleAnswer: 'element.classList.add("active");'
+  },
+  {
+    id: 10,
+    type: "mcq",
+    prompt: "What does this code do?",
+    code: 'menu.classList.toggle("hidden");',
+    options: [
+      "Permanently deletes the menu",
+      "Adds hidden if it is missing and removes it if it is present",
+      "Changes the menu's text",
+      "Checks whether the menu has an ID"
+    ],
+    sampleAnswer: "Adds hidden if it is missing and removes it if it is present"
+  },
+  {
+    id: 11,
+    type: "mcq",
+    prompt: "Which code runs showMessage when a button is clicked?",
+    options: [
+      'button.addEventListener("click", showMessage);',
+      'button.addEventListener(showMessage, "click");',
+      "button.click(showMessage);",
+      'button.event("clicked", showMessage);'
+    ],
+    sampleAnswer: 'button.addEventListener("click", showMessage);'
+  },
+  {
+    id: 12,
+    type: "mcq",
+    prompt: "Why does this code usually use handleClick without parentheses?",
+    code: 'button.addEventListener("click", handleClick);',
+    options: [
+      "The browser should call the function when the click happens",
+      "Functions cannot use parentheses",
+      "Parentheses only work in HTML",
+      "The function is being converted into a string"
+    ],
+    sampleAnswer: "The browser should call the function when the click happens"
+  },
+  {
+    id: 13,
+    type: "mcq",
+    prompt: "What should be corrected?",
+    code: 'const button = document.querySelector("#submit");\n\nbutton.addEventListener("clicked", submitForm);',
+    options: [
+      '"clicked" should be "click"',
+      "button must be declared with var",
+      "submitForm needs quotation marks",
+      "querySelector() cannot select buttons"
+    ],
+    sampleAnswer: '"clicked" should be "click"'
+  },
+  {
+    id: 14,
+    type: "mcq",
+    prompt: "Which code gets what the user typed?",
+    code: '<input id="username" type="text">',
+    options: [
+      'const name = document.querySelector("#username").value;',
+      'const name = document.querySelector("#username").textContent;',
+      'const name = document.querySelector("#username").input;',
+      'const name = document.value("#username");'
+    ],
+    sampleAnswer: 'const name = document.querySelector("#username").value;'
+  },
+  {
+    id: 15,
+    type: "mcq",
+    prompt: "What does the final line do?",
+    code: 'const input = document.querySelector("#nameInput");\nconst heading = document.querySelector("#greeting");\n\nheading.textContent = input.value;',
+    options: [
+      "Deletes the input",
+      "Displays the input's current value inside the heading",
+      "Changes the input's ID",
+      "Adds a click event to the heading"
+    ],
+    sampleAnswer: "Displays the input's current value inside the heading"
+  },
+  {
+    id: 16,
+    type: "mcq",
+    prompt: "Which code creates a new paragraph element?",
+    options: [
+      'const paragraph = document.createElement("p");',
+      'const paragraph = document.querySelector("p");',
+      'const paragraph = document.addElement("p");',
+      'const paragraph = new HTML("p");'
+    ],
+    sampleAnswer: 'const paragraph = document.createElement("p");'
+  },
+  {
+    id: 17,
+    type: "mcq",
+    prompt: "Which line adds item inside a list stored in the variable list?",
+    code: 'const item = document.createElement("li");\nitem.textContent = "Finish homework";',
+    options: [
+      "list.appendChild(item);",
+      "item.appendChild(list);",
+      "list.textContent = item;",
+      "document.createElement(item);"
+    ],
+    sampleAnswer: "list.appendChild(item);"
+  },
+  {
+    id: 18,
+    type: "mcq",
+    prompt: "What does this code return?",
+    code: 'const buttons = document.querySelectorAll(".answer-button");',
+    options: [
+      "Only the first matching button",
+      "A collection of every matching element",
+      "The text inside each button",
+      "A single string containing the class name"
+    ],
+    sampleAnswer: "A collection of every matching element"
+  },
+  {
+    id: 19,
+    type: "mcq",
+    prompt: "What happens when the button is clicked?",
+    code: 'const button = document.querySelector("#changeButton");\nconst heading = document.querySelector("#heading");\n\nfunction changeHeading() {\n  heading.textContent = "The DOM was updated!";\n}\n\nbutton.addEventListener("click", changeHeading);',
+    options: [
+      "The button's text changes",
+      "The heading's text changes",
+      "A new heading is created",
+      "The page reloads"
+    ],
+    sampleAnswer: "The heading's text changes"
+  },
+  {
+    id: 20,
+    type: "mcq",
+    prompt: "The goal is to hide a paragraph when a button is clicked. Which JavaScript works correctly?",
+    code: '<button id="hideButton">Hide</button>\n<p id="secret">Secret message</p>',
+    options: [
+      'const button = document.querySelector("#hideButton");\nconst secret = document.querySelector("#secret");\n\nbutton.addEventListener("click", function () {\n  secret.classList.add("hidden");\n});',
+      'const button = document.querySelector("hideButton");\nconst secret = document.querySelector("secret");\n\nbutton.addEventListener("clicked", function () {\n  secret.add("hidden");\n});',
+      'const button = document.querySelector("#hideButton");\n\nbutton.addEventListener("click", function () {\n  document.textContent = "hidden";\n});',
+      'const secret = document.querySelector("#secret");\n\nsecret.addEventListener("hidden", function () {\n  button.classList.add("click");\n});'
+    ],
+    sampleAnswer: "Option 1 — correct selectors (# prefix), correct event name (click), correct method (classList.add)"
+  }
+];
+
+module.exports = activities;
+
+/*const activities = [
+  {
+    id: 1,
+    type: "mcq",
     prompt: "What prints?",
     code: 'function greet() {\n  console.log("Hello!");\n}\n\ngreet();',
     options: ["Nothing", "Hello!", "greet", "Error"],
@@ -195,7 +443,7 @@ const activities = [
 
 module.exports = activities;
 
-/*const activities = [
+const activities = [
   {
     id: 1,
     type: "this-or-that",

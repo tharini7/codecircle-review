@@ -49,12 +49,23 @@ io.on('connection', (socket) => {
 
         socket.join(code);
         socket.emit('joined-room', room);
+        const activity = activities[room.currentActivityIndex];
+
+        if (activity) {
+            socket.emit('activity-started', {
+                activity,
+                index: room.currentActivityIndex,
+                total: activities.length
+            });
+        }
         io.to(code).emit('scholar-join', room.scholars);
     });
 
     socket.on('next-activity', ({ code }) => {
         const room = getRoom(code);
         if (!room) return;
+
+        if (room.currentActivityIndex + 1 >= activities.length) return;
 
         room.currentActivityIndex++;
         room.responses = [];
